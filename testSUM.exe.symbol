@@ -1,0 +1,17 @@
+< THE SYMBOL TABLE >  testSUM.exe  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+STACK                    	00000     	-5        	SEGMENT   	(ITSELF)  
+DATA                     	00010     	-5        	SEGMENT   	(ITSELF)  
+VAR1                     	00000     	1         	VAR       	data      
+VAR2                     	00001     	1         	VAR       	data      
+MSG1                     	00002     	1         	VAR       	data      
+MSG2                     	00020     	1         	VAR       	data      
+R_MSG                    	0003F     	1         	VAR       	data      
+CODE                     	00015     	-5        	SEGMENT   	(ITSELF)  
+MAIN                     	00000     	-1        	NEAR      	code      
+===================================================================================================
+[ 5/12/2019  --  9:58:51 PM ] 
+< END >
+ 

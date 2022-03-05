@@ -1,0 +1,77 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+TESTING_MULTIPLE_DIGITS.exe -- emu8086 assembler version: 4.08  
+ 
+[ 5/12/2019  --  11:03:59 PM ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       .MODEL SMALL
+[   2]        :                                       .STACK 100H
+[   3]        :                                       .DATA
+[   4]    0100: 00 00                                 COUNTER DW 0;
+[   5]        :                                       .CODE
+[   6]    0110:                                       MAIN PROC
+[   7]    0110: B4 01                                 MOV AH,1
+[   8]    0112: CD 21                                 INT 21H ;TAKES INPUT IN AL AS ASCII VALUE
+[   9]    0114: 8B D8                                 MOV BX,AX
+[  10]    0116: 83 EB 30                              SUB BX,'0' ;EXTRACTS INTEGER VALUE FROM ASCII VALUE
+[  11]    0119: CD 21                                 INT 21H
+[  12]    011B: 2D 30 00                              SUB AX,'0'
+[  13]    011E: 03 C3                                 ADD AX,BX
+[  14]    0120: BB 0A 00                              MOV BX,10
+[  15]    0123: F7 F3                                 DIV BX
+[  16]    0125: 83 C2 30                              ADD DX,'0' ;CONVERTS TO ASCII VALUE BECAUSE DISPLAY IS ALWAYS IN ASCII
+[  17]    0128: B4 09                                 MOV AH,9
+[  18]    012A: CD 21                                 INT 21H
+[  19]        :                                       ;RETURN TO DOS
+[  20]    012C: B4 4C                                 MOV AH,4CH
+[  21]    012E: CD 21                                 INT 21H
+[  22]        :                                       MAIN ENDP
+[  23]        :                                       END MAIN
+[  24]        :                                       
+[  25]        :                                       
+[  26]        :                                       
+ 
+===================================================================================================
+ 
+EXE HEADER - bytes from 0000 to 01FF inclusive.
+
+0000: 4D      -   exe signature (M)
+0001: 5A      -   exe signature (Z)
+0002: 30      -   bytes on last page (l.byte)
+0003: 01      -   bytes on last page (h.byte)
+0004: 02      -   512 byte pages in file (l.byte)
+0005: 00      -   512 byte pages in file (h.byte)
+0006: 00      -   relocations (l.byte)
+0007: 00      -   relocations (h.byte)
+0008: 20      -   paragraphs in header (l.byte)
+0009: 00      -   paragraphs in header (h.byte)
+000A: 00      -   minimum memory (l.byte)
+000B: 00      -   minimum memory (h.byte)
+000C: FF      -   maximum memory (l.byte)
+000D: FF      -   maximum memory (h.byte)
+000E: 00      -   SS - stack segment (l.byte)
+000F: 00      -   SS - stack segment (h.byte)
+0010: 00      -   SP - stack pointer (l.byte)
+0011: 01      -   SP - stack pointer (h.byte)
+0012: AC      -   check sum (l.byte)
+0013: 83      -   check sum (h.byte)
+0014: 00      -   IP - instruction pointer (l.byte)
+0015: 00      -   IP - instruction pointer (h.byte)
+0016: 11      -   CS - code segment (l.byte)
+0017: 00      -   CS - code segment (h.byte)
+0018: 1E      -   relocation table adress (l.byte)
+0019: 00      -   relocation table adress (h.byte)
+001A: 00      -   overlay number (l.byte)
+001B: 00      -   overlay number (h.byte)
+001C: 01      -   signature (l.byte)
+001D: 00      -   signature (h.byte)
+001E to 01FF  -   reserved relocation area  (00) 
+
+
+
+
+===================================================================================================

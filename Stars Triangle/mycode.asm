@@ -1,0 +1,38 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC
+    MOV AH,2
+    MOV DL,'N'
+    INT 21H
+    MOV DL,'='
+    INT 21H
+    MOV AH,1
+    INT 21H
+    SUB AL,'0'
+    MOV BL,AL
+    MOV AH,2
+    MOV DL,0DH
+    INT 21H
+    MOV DL,0AH
+    INT 21H
+PRINT_ROW:  
+    MOV CL,BL
+    MOV CH,0
+    MOV DL,'*'
+PRINT_COL:
+    INT 21H
+    LOOP PRINT_COL 
+    MOV DL,0DH
+    INT 21H
+    MOV DL,0AH
+    INT 21H
+    DEC BL
+    JNZ PRINT_ROW
+    MOV AH,4CH
+    INT 21H
+MAIN ENDP    
+    END MAIN
+    
+    
